@@ -1,52 +1,28 @@
-let alien;
-
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  alien = new Alien();
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-function draw() {
-  background(0);
-
-  alien.update();
-  alien.display();
+.meme-container {
+    text-align: center;
 }
 
-function mouseMoved() {
-  // Use the map() function to control the alien's dance moves based on mouse position
-  let danceSpeed = map(mouseX, 0, width, 0.1, 2.0);
-  let danceIntensity = map(mouseY, 0, height, 0.5, 2.0);
-
-  alien.dance(danceSpeed, danceIntensity);
+#cat-image {
+    width: 200px;
 }
 
-class Alien {
-  constructor() {
-    this.x = width / 2;
-    this.y = height / 2;
-    this.angle = 0;
-    this.size = 100;
-  }
+#meme-text {
+    font-size: 24px;
+}
 
-  dance(speed, intensity) {
-    // Modify the alien's dance moves based on user input
-    this.angle += speed;
-    this.size = 100 + intensity * 50;
-  }
-
-  update() {
-    // You can add any other animations or interactions here
-  }
-
-  display() {
-    push();
-    translate(this.x, this.y);
-    rotate(this.angle);
-    fill(100, 250, 100);
-    noStroke();
-    ellipse(0, 0, this.size, this.size);
-    // Add your custom alien design here (e.g., eyes, antenna, etc.)
-    // Add additional animations here (e.g., blinking, antenna movement, etc.)
-    pop();
-  }
+#sike-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
 }
